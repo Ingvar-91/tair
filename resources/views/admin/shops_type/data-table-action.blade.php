@@ -1,0 +1,3 @@
+<a href="#" class="btn btn-info get-detail" title="Посмотреть детали"><i class="fa fa-eye"></i></a>
+<!--<a href="{{Route('admin.products.edit', ['id' => $id, 'shop_type' => request()->shop_type])}}" class="btn btn-primary" title="Редактировать запись"><i class="fa fa-edit"></i></a>
+<button class="btn btn-danger remove-entry" title="Удалить запись" data-id="{{$id}}"><i class="fa fa-close"></i></button>-->

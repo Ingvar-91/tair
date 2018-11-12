@@ -1,0 +1,41 @@
+{
+  "name": "public",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "font-awsome#^4.7.0",
+    "owl.carousel": "^2.2.1",
+    "datatables.net-bs": "^2.1.1",
+    "datatables.net-buttons-bs": "^1.3.1",
+    "datatables.net-fixedheader-bs": "^3.1.2",
+    "datatables.net-keytable-bs": "^2.2.1",
+    "datatables.net-responsive-bs": "^2.1.1",
+    "datatables.net-scroller-bs": "^1.4.2",
+    "pnotify": "^3.2.0",
+    "fastclick": "^1.0.6",
+    "nprogress": "^0.2.0",
+    "bootstrap-daterangepicker": "^2.1.25",
+    "moment": "^2.18.1",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "ejs": "^1.0.0",
+    "ckeditor": "^4.7.1",
+    "lightgallery": "^1.4.0",
+    "jquery-validation": "^1.16.0",
+    "seiyria-bootstrap-slider": "^9.8.1",
+    "Sortable": "sortablejs#^1.6.0",
+    "jquery.maskedinput": "^1.4.1"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <noscript><meta http-equiv="refresh" content="0; URL=/browser" /></noscript>
+    <!--[if lt IE 9]>
+      <meta http-equiv="refresh" content="0; URL=/browser" />
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Виртуальный тур «Таир — 4»</title>
+    <link href="" rel="shortcut icon" />
+    <style>
+		body{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		#pano {
+			display: block;
+			width: 100%;
+		}
+    </style>
+  </head>
+  <body>
+
+    <iframe id="pano" src="/panorama/vt_tg_tair/tair4.html" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+
+    <!-- СКРИПТЫ -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      (function($) {
+        $(function() {
+
+          $('#pano').attr({
+            'webkitallowfullscreen': 'true',
+            'mozallowfullscreen': 'true',
+            'allowfullscreen': 'true'
+          }).css({
+            'height': $(window).height()+'px'
+          });
+
+        });
+      })(jQuery);
+    </script>
+
+  </body>
+</html>

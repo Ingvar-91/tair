@@ -1,0 +1,1 @@
+<span>{{$statusArray[$status]}}</span>

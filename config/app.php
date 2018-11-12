@@ -1,7 +1,206 @@
 <?php
 
 return [
-
+	'apiVk' => [
+		'access_token' => '74406344427d44ad739679fa0b6b4c30e225356c4304abe799b54217576465e87d1675f1fc44156969e22',
+		'group_id' => 67999308
+	],
+    'accessTokenApi' => 'ILs1C9wL4leAHbMHu6zgdj2SiSCdmy5J',
+    'contacts' => [
+        'email' => 'info@tair.shop',
+        'emailTair' => 'arenda@tair.shop',
+        //'whatsapp' => 'http://goo.gl/E6mA7z',
+        'whatsapp' => 'http://goo.gl/E6mA7z',
+        'phone' => '+7(7212)43–70–14',
+        //'phone' => '+77212502524',
+        'wdContacts' => [
+            [
+                'title' => 'Администрация ТГ «Таир»',
+                'logo' => '1.png',
+                'phones' => [
+                    '+7 (7212) 43–70–14'
+                ]
+            ],
+            /*[
+                'title' => 'Рекламный отдел ТГ «Таир»',
+                'logo' => '2.png',
+                'phones' => [
+                    '+7 (7212) 50-25-24'
+                ]
+            ],*/
+            [
+                'title' => 'Кинотеатр «Sary Arka Cinema»',
+                'logo' => '3.png',
+                'phones' => [
+                    '+7–708–439–69–09',
+                    '+7 (7212) 213–212'
+                ]
+            ],
+            [
+                'title' => 'Центр Семейного Отдыха «Safari Park»',
+                'logo' => '4.png',
+                'phones' => [
+                    '8–701–373–78–64',
+                    '+7 (7212) 402–096 '
+                ]
+            ],
+            [
+                'title' => 'Супермаркет «Южный»',
+                'logo' => '5.png',
+                'phones' => [
+                    '+7 (7212) 92–25–28'
+                ]
+            ],
+            [
+                'title' => 'Cупермаркет посуды «Luminarc»',
+                'logo' => '6.png',
+                'phones' => [
+                    '+7 (7212) 50–51–59'
+                ]
+            ],
+            [
+                'title' => 'Магазин бытовой техники «Sulpak»',
+                'logo' => '7.png',
+                'phones' => [
+                    '32–10'
+                ]
+            ],
+            [
+                'title' => 'Магазин электронной техники «Alser»',
+                'logo' => '8.png',
+                'phones' => [
+                    '3003'
+                ]
+            ],
+            [
+                'title' => 'Магазин спортивных товаров «Спортмастер»',
+                'logo' => '9.png',
+                'phones' => [
+                    '+7 (7212) 50–68–65'
+                ]
+            ],
+            [
+                'title' => 'Магазин спортивных товаров «Adidas &Reebok»',
+                'logo' => '10.png',
+                'phones' => [
+                    '+7 (7212) 40–06–92',
+                    '+7 (7212) 40–06–94'
+                ]
+            ],
+            [
+                'title' => 'Детский супермаркет «Еркемай»',
+                'logo' => '11.png',
+                'phones' => [
+                    '+7 (7212) 55–87–28'
+                ]
+            ],
+            [
+                'title' => 'Детский супермаркет «Кенгуру»',
+                'logo' => '12.png',
+                'phones' => [
+                    '+7 (7212) 50–65–87'
+                ]
+            ],
+            [
+                'title' => 'Турецкий бред «КOTON»',
+                'logo' => '13.png',
+                'phones' => [
+                    '+7 (7212) 25–54–57'
+                ]
+            ],
+            [
+                'title' => 'Турецкий бренд «LC WAIKIKI»',
+                'logo' => '14.png',
+                'phones' => [
+                    '+7 (7212) 92–24–15',
+                    '+7 (7212) 92–24–16'
+                ]
+            ],
+            [
+                'title' => 'Турецкий бренд «DeFacto»',
+                'logo' => '15.png',
+                'phones' => [
+                    '+7 (7212) 50–67–69'
+                ]
+            ],
+            [
+                'title' => 'Турецкий бренд «FLO»',
+                'logo' => '16.png',
+                'phones' => [
+                    '+7 705 108 94 43'
+                ]
+            ],
+            [
+                'title' => 'Магазин одежды «O`stin»',
+                'logo' => '17.png',
+                'phones' => [
+                    '+7 (7212) 50–30–94'
+                ]
+            ],
+            [
+                'title' => 'Магазин обуви «Kari»',
+                'logo' => '18.png',
+                'phones' => [
+                    '+7 (7212) 50–33–39'
+                ]
+            ],
+            [
+                'title' => 'Магазин обуви «Юничел»',
+                'logo' => '19.png',
+                'phones' => [
+                    '+7 (7212) 50–53–83'
+                ]
+            ],
+            [
+                'title' => 'Пиццерия «Palermo»',
+                'logo' => '20.png',
+                'phones' => [
+                    '+7 (7212) 51–32–33',
+                    '+7–700–302–50–92'
+                ]
+            ],
+            [
+                'title' => 'Пиццерия «ParaPaPizza»',
+                'logo' => '21.png',
+                'phones' => [
+                    '+7–777–004–85–89',
+                    '+7–775–201–77–73'
+                ]
+            ],
+            [
+                'title' => 'Ресторан быстрого питания «Chicago»',
+                'logo' => '22.png',
+                'phones' => [
+                    '+7–775–679–43–00'
+                ]
+            ],
+            [
+                'title' => 'Ресторан быстрого питания «KCC»',
+                'logo' => '23.png',
+                'phones' => [
+                    '+7 (7212) 50–44–42',
+                    '+7–708–602–68–44'
+                ]
+            ],
+            [
+                'title' => 'Кафе «Ankara»',
+                'logo' => '24.png',
+                'phones' => [
+                    '+7 (7212) 40–02–16'
+                ]
+            ],
+            [
+                'title' => 'Кондитерская «Ежевика»',
+                'logo' => '25.png',
+                'phones' => [
+                    '+7–701–882–45–67',
+                    '+7 (7212) 78–74–70'
+                ]
+            ],
+            
+        ]
+    ],
+	
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -14,6 +213,12 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+	
+	'words_title' => env('APP_WORDS_TITLE', 'Laravel'),
+	
+    'domen' => 'tair.shop',
+    'apiUrl' => '//tair.shop/',
+    'domain' => env('DOMAIN_NAME', 'tair.shop'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +270,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Almaty',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +283,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,6 +377,15 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		
+		App\Providers\HelperServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        'Jenssegers\Date\DateServiceProvider',
+        Intervention\Image\ImageServiceProvider::class,
+        'JanDrda\LaravelGoogleCustomSearchEngine\LaravelGoogleCustomSearchEngineProvider',
+        Alaouy\Youtube\YoutubeServiceProvider::class,
+        vladkolodka\phpMorphy\MorphyServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
@@ -221,6 +435,15 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+		
+		'Helper' => App\Helpers\Helper::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Date' => Jenssegers\Date\Date::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'GoogleCseSearch' => 'JanDrda\LaravelGoogleCustomSearchEngine\Facades\LaravelGoogleCustomSearchEngineProvider',
+        'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+        'Morphy' => vladkolodka\phpMorphy\Facade\Morphy::class,
+		
 
     ],
 

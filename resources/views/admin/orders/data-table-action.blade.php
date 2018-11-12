@@ -1,0 +1,1 @@
+<a href="{{Route('admin.orders.edit.form', ['id' => $id])}}" class="btn btn-info" title="Просмотр заказа"><i class="fa fa-eye"></i></a>

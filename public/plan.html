@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <noscript><meta http-equiv="refresh" content="0; URL=/browser" /></noscript>
+    <!--[if lt IE 9]>
+      <meta http-equiv="refresh" content="0; URL=/browser" />
+    <![endif]-->
+    <title>Карта этажей | Виртуальный торговый центр ТАИР</title>
+    <link href="" rel="shortcut icon" />
+	
+    <style>
+      *,
+      *:before,
+      *:after {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+        -ms-overflow-y: scroll;
+            overflow-y: scroll;
+        -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+      }
+
+      body {
+        height: 100%;
+        color: #444;
+        font: 14px/20px Arial, Helvetica, sans-serif;
+        background: #FFF;
+      }
+	  
+	  #button-open{
+		position: fixed;
+        top: 0;
+        left: 0;
+        height: 40px;
+		width: 40px;
+		background: #eee;
+		border-left: 1px solid #CCC;
+		cursor: pointer;
+		transition: 0.3s;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+		top: 10%;
+		color: #555;
+		text-align: center;
+		font-size: 24px;
+		line-height: 42px;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+	  }
+	  
+	  #button-open.active{
+		left: 271px;
+	  }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .section {
+        /*padding-left: 320px;*/
+        background: #EEE;
+      }
+
+      .tabs {
+        position: fixed;
+        top: 0;
+        left: -271px;
+        height: 40px;
+        list-style: none;
+        border-bottom: 1px solid #CCC;
+        z-index: 999;
+		transition: 0.3s;
+		background: #eee;
+      }
+	  
+	  .tabs.active{
+		left: 0;
+	  }
+
+      .tabs li {
+		width: 67.8px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        float: left;
+        color: #777;
+        border-right: 1px solid #CCC;
+        cursor: pointer;
+      }
+
+      .tabs li:hover {
+        color: #444;
+        background: #E5E5E5;
+        border-bottom: 1px solid #CCC;
+      }
+
+      .tabs li:last-child {
+        border-right: none;
+      }
+
+      .tabs li.current {
+        color: #FFF;
+        background: #0AE;
+      }
+
+      .tabs li.current:hover {
+        border-bottom: none;
+      }
+
+      .box,
+      .box-color {
+        display: none;
+      }
+
+      .box.visible,
+      .box-color.visible {
+        display: block;
+      }
+
+      .box-color {
+        border-left: 1px solid #CCC;
+      }
+
+      .tabs-cats {
+        position: fixed;
+        top: 40px;
+        left: -271px;
+        list-style: none;
+        z-index: 999;
+		position: fixed;
+		background: #eee;
+		bottom: 0;
+		transition: 0.3s;
+		width: 271px;
+		overflow-y: auto;
+		overflow-x: hidden;
+      }
+	  
+	  .tabs-cats.active{
+		left: 0;
+	  }
+
+      .tabs-cats li {
+		width: 271px;
+		padding: 6px 10px;
+        height: auto;
+        border-bottom: 1px solid #CCC;
+        color: #777;
+        cursor: pointer;
+      }
+
+      .tabs-cats li:hover {
+        color: #444;
+        background: #E5E5E5;
+      }
+
+      .tabs-cats li.current {
+        position: relative;
+        color: #FFF;
+        background: #0AE;
+      }
+
+      .tabs-cats li.current:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -30px;
+        border: 15px solid transparent;
+        border-left: 15px solid #0AE;
+      }
+
+      .tabs-cats li.current.color-00AAEE {
+        background: #0AE;
+      }
+
+      .tabs-cats li.current.color-00AAEE:after {
+        border-left-color: #0AE;
+      }
+
+      .tabs-cats li.current.color-FF0000 {
+        background: #FF0000;
+      }
+
+      .tabs-cats li.current.color-FF0000:after {
+        border-left-color: #FF0000;
+      }
+
+      .tabs-cats li.current.color-0000C3 {
+        background: #0000C3;
+      }
+
+      .tabs-cats li.current.color-0000C3:after {
+        border-left-color: #0000C3;
+      }
+
+      .tabs-cats li.current.color-FEFF30 {
+        color: #444;
+        background: #FEFF30;
+      }
+
+      .tabs-cats li.current.color-FEFF30:after {
+        border-left-color: #FEFF30;
+      }
+
+      .tabs-cats li.current.color-00D02D {
+        background: #00D02D;
+      }
+
+      .tabs-cats li.current.color-00D02D:after {
+        border-left-color: #00D02D;
+      }
+
+      .tabs-cats li.current.color-FF8530 {
+        background: #FF8530;
+      }
+
+      .tabs-cats li.current.color-FF8530:after {
+        border-left-color: #FF8530;
+      }
+
+      .tabs-cats li.current.color-00A4FD {
+        background: #00A4FD;
+      }
+
+      .tabs-cats li.current.color-00A4FD:after {
+        border-left-color: #00A4FD;
+      }
+
+      .tabs-cats li.current.color-BD37DD {
+        background: #BD37DD;
+      }
+
+      .tabs-cats li.current.color-BD37DD:after {
+        border-left-color: #BD37DD;
+      }
+
+      .tabs-cats li.current.color-FFAFB5 {
+        background: #FFAFB5;
+      }
+
+      .tabs-cats li.current.color-FFAFB5:after {
+        border-left-color: #FFAFB5;
+      }
+
+      .tabs-cats li.current.color-8CD8F8 {
+        background: #8CD8F8;
+      }
+
+      .tabs-cats li.current.color-8CD8F8:after {
+        border-left-color: #8CD8F8;
+      }
+
+      .tabs-cats li.current.color-DF6F70 {
+        background: #DF6F70;
+      }
+
+      .tabs-cats li.current.color-DF6F70:after {
+        border-left-color: #DF6F70;
+      }
+
+      .tabs-cats li.current.color-FFC87C {
+        color: #444;
+        background: #FFC87C;
+      }
+
+      .tabs-cats li.current.color-FFC87C:after {
+        border-left-color: #FFC87C;
+      }
+
+      .tabs-cats li.current.color-DD9362 {
+        background: #DD9362;
+      }
+
+      .tabs-cats li.current.color-DD9362:after {
+        border-left-color: #DD9362;
+      }
+
+      .tabs-cats li.current.color-98D5B1 {
+        background: #98D5B1;
+      }
+
+      .tabs-cats li.current.color-98D5B1:after {
+        border-left-color: #98D5B1;
+      }
+
+      .tabs-cats li.current.color-A5CD34 {
+        background: #A5CD34;
+      }
+
+      .tabs-cats li.current.color-A5CD34:after {
+        border-left-color: #A5CD34;
+      }
+
+      .tabs-cats li.current.color-FF4F8D {
+        background: #FF4F8D;
+      }
+
+      .tabs-cats li.current.color-FF4F8D:after {
+        border-left-color: #FF4F8D;
+      }
+
+      .tabs-cats li.current.color-43A477 {
+        background: #43A477;
+      }
+
+      .tabs-cats li.current.color-43A477:after {
+        border-left-color: #43A477;
+      }
+
+      .tabs-cats li.current.color-5F596F {
+        background: #5F596F;
+      }
+
+      .tabs-cats li.current.color-5F596F:after {
+        border-left-color: #5F596F;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="section">
+	
+	<div id="button-open" title="Показать меню">
+		<i class="fa fa-list" aria-hidden="true"></i>
+	</div>
+
+      <ul class="tabs">
+        <li class="current">1 этаж</li>
+        <li>2 этаж</li>
+        <li>3 этаж</li>
+        <li>4 этаж</li>
+      </ul>
+
+      <div class="box visible">
+
+        <ul class="tabs-cats">
+          <li class="color-00AAEE current">Всё</li>
+          <li class="color-FF0000">Женская одежда</li>
+          <li class="color-0000C3">Мужская одежда</li>
+          <li class="color-FEFF30">Детская одежда</li>
+          <li class="color-00D02D">Обувь</li>
+          <li class="color-FF8530">Кож. галантирея</li>
+          <li class="color-00A4FD">Спортивная одежда</li>
+          <li class="color-BD37DD">Головные уборы, купальники</li>
+          <li class="color-FFAFB5">Свадебное</li>
+          <li class="color-8CD8F8">Нижнее бельё и чулочно-носочные изделия</li>
+          <li class="color-DF6F70">Домашний текстиль, интерьер</li>
+          <li class="color-FFC87C">Посуда, сувениры, сот. аксессуары</li>
+          <li class="color-DD9362">Бижутерия, золото, часы</li>
+          <li class="color-98D5B1">Косметика</li>
+          <li class="color-A5CD34">Аптека, оптика</li>
+          <li class="color-FF4F8D">Ателье, салон красоты, химчистка, TV Shop</li>
+          <li class="color-43A477">Банк, ломбард, обменный пункт</li>
+          <!--
+          <li class="color-5F596F">Ювелир, коктели, муз. инструменты, книги</li>
+          -->
+        </ul>
+
+        <div class="box-color visible">
+          <img src="/plan/cvetnye/1-jetazh.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/zhenskaja.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/muzhickaja.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/detskaja.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/obuv.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/kozhgalantereja.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/sport.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/shapki.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/svadebnoe.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/bele.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/tekstil.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/posuda.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/bizhuterija.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/kosmetika.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/apteka.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/atele.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/1-jetazh/bank.jpg?v=1" />
+        </div>
+
+        <!--
+        <div class="box-color">
+          <img src="/plan/1-jetazh/" />
+        </div>
+        -->
+
+      </div><!-- /.box -->
+
+      <div class="box">
+        
+        <ul class="tabs-cats">
+
+          <!--<li class="color-8CD8F8">Парфюмерия</li>
+          <li class="color-DF6F70">Домашний текстиль</li>-->
+          
+          <li class="color-00AAEE current">Всё</li>
+          <li class="color-FFAFB5">Ателье</li>
+          <li class="color-FFC87C">Бижутерия, золото</li>
+          <li class="color-FF8530">Джинсы</li>
+          <li class="color-0000C3">Мужская одежда</li>
+          <li class="color-FF0000">Женская одежда</li>
+          <li class="color-00D02D">Обувь</li>
+          <li class="color-BD37DD">Головные уборы</li>
+          <li class="color-00A4FD">Спортивные товары</li>
+          
+        </ul>
+
+        <div class="box-color visible">
+          <img src="/plan/cvetnye/2-jetazh.jpg?v=1" />
+        </div>
+
+        <div class="box-color">
+          <img src="/plan/2-jetazh/atele.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/2-jetazh/bizhuterija.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/2-jetazh/dzhinsy.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/2-jetazh/muzhickaja.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/2-jetazh/zhenskaja.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/2-jetazh/obuv.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/2-jetazh/shapki.jpg?v=1" />
+        </div>
+        
+		<div class="box-color">
+          <img src="/plan/2-jetazh/sport.jpg?v=1" />
+        </div>
+
+      </div><!-- /.box -->
+
+      <div class="box">
+      
+      	<ul class="tabs-cats">
+
+          <li class="color-00AAEE current">Всё</li>
+          <li class="color-0000C3">Мужская одежда</li>
+          <li class="color-00D02D">Обувь</li>
+          <li class="color-00A4FD">Спортивные товары</li>
+          <li class="color-FF0000">Женская одежда</li>
+          
+        </ul>
+
+        <div class="box-color visible">
+          <img src="/plan/cvetnye/3-jetazh.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/3-jetazh/muzhickaja.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/3-jetazh/obuv.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/3-jetazh/sport.jpg?v=1" />
+        </div>
+        
+        <div class="box-color">
+          <img src="/plan/3-jetazh/zhenskaja.jpg?v=1" />
+        </div>
+
+      </div><!-- /.box -->
+
+      <div class="box">
+	  
+		<ul class="tabs-cats">
+          <li class="color-00AAEE current">Всё</li>
+        </ul>
+
+        <div class="box-color visible">
+          <img src="/plan/cvetnye/4-jetazh.jpg?v=1" />
+        </div>
+
+      </div><!-- /.box -->
+
+    </div><!-- /.section -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      (function($) {
+        $(function() {
+		
+			//
+			/*var storageMenuPlan = localStorage.getItem('menu_palan')*/
+		
+			/*if (storageMenuPlan){
+				$('.tabs, .tabs-cats, #button-open').addClass('active')
+			}*/
+		
+			//
+			$('#button-open').on('click', function() {
+				$(this).toggleClass('active')
+				$('.tabs, .tabs-cats').toggleClass('active')
+				
+				/*if(!storageMenuPlan){
+				alert(1)
+					localStorage.setItem('menu_palan', 1)
+				}
+				else{
+				alert(0)
+					localStorage.setItem('menu_palan', 0)
+				}*/
+				
+			});
+			
+			//
+			$('.tabs').on('click', 'li:not(.current)', function() {
+			$(this).addClass('current').siblings().removeClass('current')
+				   .parents('.section').find('.box').eq($(this).index()).fadeIn(150).siblings('.box').hide();
+			});
+
+			$('.tabs-cats').on('click', 'li:not(.current)', function() {
+			$(this).addClass('current').siblings().removeClass('current')
+				   .parents('.box').find('.box-color').eq($(this).index()).fadeIn(150).siblings('.box-color').hide();
+			});
+
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

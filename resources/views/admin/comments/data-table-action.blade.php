@@ -1,0 +1,4 @@
+<button id="reply-comment" class="btn btn-success" title="Ответить на комментарий" data-id="{{$id}}" data-user_id="{{$user_id}}" data-first_parent_id="{{$first_parent_id}}"><i class="fa fa-reply"></i></button>
+<button id="edit-comment" class="btn btn-primary" title="Редактировать запись" data-id="{{$id}}"><i class="fa fa-edit"></i></button>
+<!--<button class="btn btn-danger remove-entry" title="Удалить запись" data-id="{{$id}}"><i class="fa fa-close"></i></button>-->
+<button id="all-history-comment" class="btn btn-info" title="Посмотреть всю историю комментария" data-first_parent_id="{{$first_parent_id}}" data-id="{{$id}}"><i class="fa fa-eye"></i></button>

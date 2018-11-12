@@ -1,0 +1,4 @@
+<button class="btn btn-info get-detail" title="Посмотреть детали" data-id="{{$id}}" data-shop_type_id="{{request()->shop_type}}"><i class="fa fa-eye"></i></button>
+<a href="{{Route('admin.products.edit', ['id' => $id, 'shop_type' => request()->shop_type])}}" class="btn btn-primary" title="Редактировать запись"><i class="fa fa-edit"></i></a>
+<button class="btn btn-danger remove-entry" title="Удалить запись" data-id="{{$id}}"><i class="fa fa-close"></i></button>
+<a href="{{Route('admin.products.add-copy.form', ['id' => $id, 'shop_type' => request()->shop_type])}}" class="btn btn-success" title="Добавить копию"><i class="fa fa-plus"></i></a>
