@@ -237,6 +237,7 @@
                 chars.push($(el).val())
             }
         });
+        console.log(chars)
         formData.set('chars', JSON.stringify(chars));
         
         var $images = $($dropzoneProduct).find('.dz-image-name'),

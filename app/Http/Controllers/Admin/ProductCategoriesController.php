@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Controller;
 use Illuminate\Http\Request;
 use App\Http\Models\Admin\ProductCategories;
 use Auth;
+use Illuminate\Support\Facades\Cache;
 
 use App\Files\UploadImage;
 
@@ -17,11 +18,15 @@ class ProductCategoriesController extends Controller {
     
     public function index(Request $request){
         if ($request->ajax()) {
-            $categories = $this->buildTree(ProductCategories::index($request));
+            $categories = Cache::remember(config('cache.member.categories.admin_products'), 525600, function () {
+                return $this->buildTree(ProductCategories::index());
+            });
             return response()->json(['error' => empty($categories), 'categories' => $categories]);
         }
         
-        $this->data['categories'] = $this->buildTree(ProductCategories::index());
+        $this->data['categories'] = Cache::remember(config('cache.member.categories.admin_products'), 525600, function () {
+            return $this->buildTree(ProductCategories::index());
+        });
         return view(self::tmpl.'index', $this->data);
     }
     

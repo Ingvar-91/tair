@@ -23,12 +23,13 @@ class UsersShops extends Model{
                 ->where('user_id', $user_id)
                 ->leftJoin('shops', 'users_shops.shop_id', '=', 'shops.id')
                 ->addSelect(
-                        'users_shops.*',
-                        'shops.title',
-                        'shops.id as shop_id',
-                        'shops.short_description',
-                        'shops.images as shop_images'
-                        )
+                    'users_shops.*',
+                    'shops.title',
+                    'shops.id as shop_id',
+                    //'shops.short_description',
+                    'shops.images as shop_images',
+                    'shops.preview_frontpage'
+                )
                 ->get();
     }
     

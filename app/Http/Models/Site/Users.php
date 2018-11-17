@@ -9,7 +9,11 @@ use Auth;
 class Users extends Model{
     
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
+        'verification_token',
+        'verification',
+        'remember_token'
     ];
     
     protected $fillable = ['nickname', 'email', 'password', 'phone', 'image', 'role', 'verification', 'address'];

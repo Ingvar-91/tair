@@ -56,6 +56,21 @@ class Products extends Model{
         return $query;
     }
     
+    public static function getUserProducts($request){
+        return Products::leftJoin('shops', 'products.shop_id', '=', 'shops.id')
+                ->select(
+                    'products.id',
+                    'products.title',
+                    'products.images',
+                    'shops.id as shops_id',
+                    'shops.title as shops_title'
+                )
+                ->where('products.shop_id', $request->shop_id)
+                ->where('products.del', 1)
+                ->where('products.date_remove', '>', date('Y-m-d H:i:s'))
+                ->paginate(12);
+    }
+    
     //обновить рейтинг товара и количество отзывов
     public static function updateRating($product_id, $rating, $countReviews){
         return Products::where('id', $product_id)->update([
@@ -178,6 +193,21 @@ class Products extends Model{
                     'shops.cost_delivery',
                     'shops.placeholder',
                     'shops.schedule'
+                    )
+                ->firstOrFail();
+    }
+    
+    public static function getUserProduct($id){
+        return Products::where('products.id', '=', $id)
+                ->where('products.del', 1)
+                ->where('shops.status', 2)
+                /*->when($status, function ($query) use ($status){
+                    return $query->where('products.status', 2);
+                })*/
+                ->leftJoin('shops', 'products.shop_id', '=', 'shops.id')
+                ->addSelect(
+                    'products.*',
+                    'shops.title as shop_title'
                     )
                 ->firstOrFail();
     }

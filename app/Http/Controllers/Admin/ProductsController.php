@@ -57,8 +57,8 @@ class ProductsController extends Controller {
         } else {
             $this->data['shops'] = Shops::getAll();
             
-            $minutes = 720;// 12 часов
-            $this->data['categories'] = Cache::remember('categories_admin_products', $minutes, function () {
+            $minutes = 525600;// 1 год
+            $this->data['categories'] = Cache::remember(config('cache.member.categories.admin_products'), $minutes, function () {
                 return $this->buildTree(ProductCategories::index());
             });
         }
@@ -127,7 +127,6 @@ class ProductsController extends Controller {
                 return response()->json(['error' => false]);
             }
             catch (\Exception $e){
-                print_r($e->getMessage());
                 \DB::rollback();//Отмена транзакции и изменений, вызванных её выполнением
                 return response()->json(['error' => true]);
             }

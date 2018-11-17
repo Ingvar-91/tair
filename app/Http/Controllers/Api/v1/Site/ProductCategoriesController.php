@@ -12,7 +12,7 @@ class ProductCategoriesController extends RestController {
     
     private $categoriesAll;
     
-	public function getById(Request $request) {
+    public function getById(Request $request) {
         $data = ProductCategories::getById($request->id);
         return $this->success($data);
     }

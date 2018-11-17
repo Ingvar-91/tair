@@ -31,27 +31,28 @@ class AuthController extends RestController {
         $user = Auth::user();
         $tokenResult = $user->createToken($user->email);
         $token = $tokenResult->token;
-        if ($request->remember_me) $token->expires_at = Carbon::now()->addWeeks(1);
+        //if ($request->remember_me) $token->expires_at = Carbon::now()->addWeeks(1);
         $token->save();
 
         return $this->success([
             'email' => $user->email,
             'image' => $user->image,
+            'role' => $user->role,
+            'name' => $user->name,
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
-
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
             )->toDateTimeString()
         ]);
     }
     
-    public function user() { 
-        $user = Auth::user(); 
+    public function user(): Response { 
+        $user = Auth::user();
         return $this->success([
             'user' => $user
         ]); 
-    } 
+    }
     
     public function userExist(Request $request): Response {
         $result = Users::userExist($request->email);

@@ -74,7 +74,17 @@ Route::group([
         });
     });
     
+    Route::group(['prefix' => 'user-shop'], function(){
+        Route::group(['middleware' => 'auth:api'], function() {
+            Route::get('/getAll', ['uses' => 'Site\UserShopsController@getAll']);
+        });
+    });
     
+    Route::group(['prefix' => 'user-products', 'middleware' => 'auth:api'], function(){
+        Route::get('/getUserProducts', ['uses' => 'Site\UserProductsController@getUserProducts']);
+        Route::get('/getUserProduct', ['uses' => 'Site\UserProductsController@getUserProduct']);
+        Route::get('/getCharsProduct', ['uses' => 'Site\UserProductsController@getCharsProduct']);
+    });
     
 });
 

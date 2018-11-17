@@ -3,6 +3,13 @@
 use Illuminate\Support\Str;
 
 return [
+    
+    'member' => [
+        'categories' => [
+            'api_products' => 'categories_api_products',
+            'admin_products' => 'categories_admin_products'
+        ]
+    ],
 
     /*
     |--------------------------------------------------------------------------
